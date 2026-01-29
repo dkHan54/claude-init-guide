@@ -15,17 +15,17 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Claude Code 초기 가이드',
+  title: 'Claude Code 초기 설정 가이드',
   description: 'Claude Code + oh-my-claudecode 가이드',
   openGraph: {
-    title: 'Claude Code 초기 가이드',
+    title: 'Claude Code 초기 설정 가이드',
     description: 'Claude Code + oh-my-claudecode 가이드',
     type: 'website',
     locale: 'ko_KR',
   },
   twitter: {
     card: 'summary',
-    title: 'Claude Code 초기 가이드',
+    title: 'Claude Code 초기 설정 가이드',
     description: 'Claude Code + oh-my-claudecode 가이드',
   },
 };
