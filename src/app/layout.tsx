@@ -16,7 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: 'Claude Code 초기 가이드',
-  description: '시니어 개발자를 위한 Claude Code + oh-my-claudecode 가이드',
+  description: 'Claude Code + oh-my-claudecode 가이드',
 };
 
 export default function RootLayout({
