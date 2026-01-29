@@ -331,7 +331,7 @@ Next.js 14 App Router 기반 웹앱
         right: [
           {
             type: 'text',
-            content: '프리셋 & thresholds',
+            content: '프리셋 & 설정 예시',
             className: 'font-semibold text-accent-blue mb-2',
           },
           {
@@ -346,8 +346,8 @@ Next.js 14 App Router 기반 웹앱
           {
             type: 'code',
             language: 'json',
-            code: '"thresholds": {\n  "contextWarning": 70,\n  "contextCritical": 85,\n  "ralphWarning": 7\n}',
-            filename: '임계값 설정',
+            code: '{\n  "preset": "focused",\n  "elements": {\n    "sessionHealth": false,\n    "useBars": true,\n    "agentsFormat": "multiline",\n    "agentsMaxLines": 10\n  }\n}',
+            filename: '사용자 설정 예시',
           },
           { type: 'spacer', size: 'sm' },
           {
