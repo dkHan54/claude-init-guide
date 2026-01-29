@@ -287,9 +287,69 @@ Next.js 14 App Router 기반 웹앱
     ],
   },
 
-  // Slide 8: 추천 MCP 서버
+  // Slide 8: OMC HUD 설정
   {
     id: 8,
+    title: 'OMC HUD 상태창',
+    subtitle: '실시간 모니터링',
+    layout: 'split',
+    content: [
+      {
+        type: 'twoColumn',
+        left: [
+          {
+            type: 'text',
+            content: '표시 요소',
+            className: 'font-semibold text-accent-purple mb-2',
+          },
+          {
+            type: 'bullets',
+            items: [
+              { text: '[OMC]', sub: ['플러그인 활성화 표시'] },
+              { text: 'Rate Limits', sub: ['5시간/주간 사용량'] },
+              { text: 'Context', sub: ['컨텍스트 윈도우 사용률 (%)'] },
+              { text: 'Agents', sub: ['실행 중인 에이전트 목록'] },
+              { text: 'Todos', sub: ['TODO 진행 상황'] },
+              { text: 'Ralph/Autopilot', sub: ['활성 모드 상태'] },
+            ],
+          },
+        ],
+        right: [
+          {
+            type: 'text',
+            content: '프리셋',
+            className: 'font-semibold text-accent-blue mb-2',
+          },
+          {
+            type: 'bullets',
+            items: [
+              { text: 'minimal', sub: ['필수 정보만'] },
+              { text: 'focused', sub: ['기본값, 권장'] },
+              { text: 'full', sub: ['모든 정보 + 분석'] },
+              { text: 'analytics', sub: ['비용/토큰 분석 전용'] },
+            ],
+          },
+          { type: 'spacer', size: 'sm' },
+          {
+            type: 'code',
+            language: 'bash',
+            code: '/oh-my-claudecode:hud setup\n/oh-my-claudecode:hud  # 프리셋 변경',
+            filename: 'HUD 설정',
+          },
+        ],
+      },
+      { type: 'spacer', size: 'sm' },
+      {
+        type: 'highlight',
+        content: 'Context 70% 이상이면 경고, 80% 이상이면 /compact 권장 표시',
+        variant: 'tip',
+      },
+    ],
+  },
+
+  // Slide 9: 추천 MCP 서버
+  {
+    id: 9,
     title: '추천 MCP 서버',
     subtitle: '선택사항이지만 강력 추천',
     content: [
@@ -317,9 +377,9 @@ Next.js 14 App Router 기반 웹앱
     ],
   },
 
-  // Slide 9: Autopilot 모드
+  // Slide 10: Autopilot 모드
   {
-    id: 9,
+    id: 10,
     title: 'Autopilot 모드',
     subtitle: '완전 자율 실행',
     layout: 'code-focus',
@@ -354,9 +414,9 @@ Next.js 14 App Router 기반 웹앱
     ],
   },
 
-  // Slide 10: Ralph & Ultrawork
+  // Slide 11: Ralph & Ultrawork
   {
-    id: 10,
+    id: 11,
     title: 'Ralph & Ultrawork',
     subtitle: '지속성 + 병렬 실행',
     content: [
@@ -414,9 +474,9 @@ Next.js 14 App Router 기반 웹앱
     ],
   },
 
-  // Slide 11: Ecomode & 비용 최적화
+  // Slide 12: Ecomode & 비용 최적화
   {
-    id: 11,
+    id: 12,
     title: 'Ecomode & 비용 최적화',
     subtitle: '토큰 효율적 실행',
     content: [
@@ -450,9 +510,9 @@ Next.js 14 App Router 기반 웹앱
     ],
   },
 
-  // Slide 12: Plan & Analyze
+  // Slide 13: Plan & Analyze
   {
-    id: 12,
+    id: 13,
     title: 'Plan & Analyze',
     subtitle: '복잡한 작업 전 계획 수립',
     content: [
@@ -486,9 +546,9 @@ Next.js 14 App Router 기반 웹앱
     ],
   },
 
-  // Slide 13: 성능 최적화 & 컨텍스트 관리
+  // Slide 14: 성능 최적화 & 컨텍스트 관리
   {
-    id: 13,
+    id: 14,
     title: '성능 최적화 & 컨텍스트 관리',
     subtitle: '효율적인 Claude Code 사용법',
     content: [
@@ -535,9 +595,9 @@ Next.js 14 App Router 기반 웹앱
     ],
   },
 
-  // Slide 14: 예시 1 - 간단한 기능 구현
+  // Slide 15: 예시 1 - 간단한 기능 구현
   {
-    id: 14,
+    id: 15,
     title: '예시 1: 간단한 기능 구현',
     subtitle: 'autopilot으로 REST API 만들기',
     layout: 'code-focus',
@@ -563,9 +623,9 @@ Next.js 14 App Router 기반 웹앱
     ],
   },
 
-  // Slide 15: 예시 2 - 디버깅
+  // Slide 16: 예시 2 - 디버깅
   {
-    id: 15,
+    id: 16,
     title: '예시 2: 디버깅 워크플로우',
     subtitle: 'analyze 모드로 버그 추적',
     layout: 'code-focus',
@@ -595,9 +655,9 @@ Next.js 14 App Router 기반 웹앱
     ],
   },
 
-  // Slide 16: 예시 3 - 대규모 리팩토링
+  // Slide 17: 예시 3 - 대규모 리팩토링
   {
-    id: 16,
+    id: 17,
     title: '예시 3: 대규모 리팩토링',
     subtitle: 'ultrawork로 병렬 처리',
     layout: 'code-focus',
@@ -627,9 +687,9 @@ Next.js 14 App Router 기반 웹앱
     ],
   },
 
-  // Slide 17: Skills 활용 전략
+  // Slide 18: Skills 활용 전략
   {
-    id: 17,
+    id: 18,
     title: 'Skills 활용 전략',
     subtitle: '자주 쓰는 스킬들',
     content: [
@@ -656,9 +716,9 @@ Next.js 14 App Router 기반 웹앱
     ],
   },
 
-  // Slide 18: 개인 경험담
+  // Slide 19: 개인 경험담
   {
-    id: 18,
+    id: 19,
     title: 'Claude Code 사용 경험',
     subtitle: '실전에서 배운 것들',
     content: [
