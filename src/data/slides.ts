@@ -357,6 +357,23 @@ Next.js 14 App Router 기반 웹앱
           },
         ],
       },
+      { type: 'spacer', size: 'sm' },
+      {
+        type: 'text',
+        content: '비용 추적 (full/dense/analytics 프리셋)',
+        className: 'font-semibold text-accent-orange mb-2',
+      },
+      {
+        type: 'code',
+        language: 'bash',
+        code: '🟢 $0.0234 | 45.2k | Cache: 67.3% | $0.15/h',
+        filename: 'sessionHealth 예시',
+      },
+      {
+        type: 'highlight',
+        content: 'Budget: $2+ → notice, $5+ → ALERT. 색상: 🟢정상 🟡경고 🔴위험',
+        variant: 'warning',
+      },
     ],
   },
 
