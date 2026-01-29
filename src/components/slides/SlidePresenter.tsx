@@ -38,7 +38,12 @@ export function SlidePresenter({ slides, initialIndex = 0 }: SlidePresenterProps
         direction={direction}
       />
 
-      <SlideIndicator current={currentIndex} total={totalSlides} />
+      <SlideIndicator
+        current={currentIndex}
+        total={totalSlides}
+        titles={slides.map(s => s.title)}
+        onGoTo={goToSlide}
+      />
     </div>
   );
 }
