@@ -8,7 +8,7 @@ import { CodeBlock } from '@/components/content/CodeBlock';
 import { Highlight } from '@/components/content/Highlight';
 import { Table } from '@/components/content/Table';
 import { ComparisonTable } from '@/components/content/ComparisonTable';
-import { fadeInUp } from '@/lib/animations';
+import { fadeInUp, titleVariants, subtitleVariants, contentVariants } from '@/lib/animations';
 
 interface SlideProps {
   data: SlideData;
@@ -54,14 +54,30 @@ function renderContentBlock(block: ContentBlock, index: number) {
 
     case 'twoColumn':
       return (
-        <div key={index} className="grid grid-cols-2 gap-8">
-          <div className="space-y-4">
+        <motion.div
+          key={index}
+          className="grid grid-cols-2 gap-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+        >
+          <motion.div
+            className="space-y-4"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+          >
             {block.left.map((b, i) => renderContentBlock(b, i))}
-          </div>
-          <div className="space-y-4">
+          </motion.div>
+          <motion.div
+            className="space-y-4"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+          >
             {block.right.map((b, i) => renderContentBlock(b, i))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       );
 
     case 'spacer':
@@ -87,35 +103,43 @@ export function Slide({ data }: SlideProps) {
   return (
     <div className={`w-full min-h-full p-12 pb-24 ${layoutClasses[layout]}`}>
       {layout === 'title' ? (
-        <div className="space-y-6">
+        <motion.div
+          className="space-y-6"
+          initial="hidden"
+          animate="visible"
+        >
           <motion.h1
             className="text-6xl font-bold bg-gradient-to-r from-accent-purple to-accent-blue bg-clip-text text-transparent"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            variants={titleVariants}
           >
             {title}
           </motion.h1>
           {subtitle && (
             <motion.p
               className="text-2xl text-text-secondary"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              variants={subtitleVariants}
             >
               {subtitle}
             </motion.p>
           )}
-          <div className="space-y-4 mt-8">
+          <motion.div
+            className="space-y-4 mt-8"
+            variants={contentVariants}
+          >
             {content.map((block, index) => renderContentBlock(block, index))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       ) : (
         <>
           <SlideTitle title={title} subtitle={subtitle} />
-          <div className="space-y-6">
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
+          >
             {content.map((block, index) => renderContentBlock(block, index))}
-          </div>
+          </motion.div>
         </>
       )}
     </div>
