@@ -43,103 +43,9 @@ export const slides: SlideData[] = [
     ],
   },
 
-  // Slide 3: oh-my-claudecode 소개
+  // Slide 3: CLAUDE.md 작성 베스트 프랙티스
   {
     id: 3,
-    title: 'oh-my-claudecode (OMC)',
-    subtitle: '멀티 에이전트 오케스트레이션 플러그인',
-    content: [
-      {
-        type: 'bullets',
-        items: [
-          {
-            text: '32개 전문 에이전트',
-            sub: ['architect, executor, designer, researcher, qa-tester 등'],
-          },
-          {
-            text: '31+ 내장 스킬',
-            sub: ['autopilot, ralph, ultrawork, plan, analyze 등'],
-          },
-          {
-            text: 'Zero Learning Curve',
-            sub: ['"build me a REST API" → 자동으로 autopilot 활성화'],
-          },
-          {
-            text: '스마트 모델 라우팅',
-            sub: ['간단한 작업 → Haiku, 복잡한 추론 → Opus (30-50% 비용 절감)'],
-          },
-        ],
-      },
-    ],
-  },
-
-  // Slide 4: 설치 가이드
-  {
-    id: 4,
-    title: '설치 가이드',
-    subtitle: '3단계로 시작하기',
-    layout: 'code-focus',
-    content: [
-      { type: 'text', content: '1. Claude Code CLI 설치 & 로그인' },
-      {
-        type: 'code',
-        language: 'bash',
-        code: 'npm install -g @anthropic-ai/claude-code\nclaude   # 첫 실행 시 브라우저로 로그인 (Max/Pro 구독 필요)',
-        filename: 'Terminal',
-      },
-      { type: 'spacer', size: 'sm' },
-      { type: 'text', content: '2. (선택) API 키 사용 시' },
-      {
-        type: 'code',
-        language: 'bash',
-        code: 'export ANTHROPIC_API_KEY="sk-ant-..."',
-        filename: 'Terminal',
-      },
-      { type: 'spacer', size: 'sm' },
-      { type: 'text', content: '3. oh-my-claudecode 플러그인 설치' },
-      {
-        type: 'code',
-        language: 'bash',
-        code: '/plugin marketplace add https://github.com/Yeachan-Heo/oh-my-claudecode\n/plugin install oh-my-claudecode',
-        filename: 'Claude Code 내에서',
-      },
-    ],
-  },
-
-  // Slide 5: 초기 설정
-  {
-    id: 5,
-    title: '초기 설정',
-    subtitle: 'omc-setup으로 한 번에',
-    layout: 'code-focus',
-    content: [
-      {
-        type: 'code',
-        language: 'bash',
-        code: '/oh-my-claudecode:omc-setup',
-        filename: 'Claude Code',
-      },
-      { type: 'spacer', size: 'md' },
-      {
-        type: 'bullets',
-        items: [
-          'HUD 상태바 설치 (실시간 에이전트 상태, 비용 추적)',
-          'CLAUDE.md 자동 생성 (프로젝트별 지침)',
-          '기본 실행 모드 선택 (ultrawork / ecomode)',
-          '권장 MCP 서버 설정 안내',
-        ],
-      },
-      {
-        type: 'highlight',
-        content: '설정 후에는 자연어로 대화하듯이 사용하면 됩니다!',
-        variant: 'success',
-      },
-    ],
-  },
-
-  // Slide 6: CLAUDE.md 작성 베스트 프랙티스
-  {
-    id: 6,
     title: 'CLAUDE.md 작성법',
     subtitle: '프로젝트 맞춤 설정의 핵심',
     layout: 'split',
@@ -231,6 +137,100 @@ Next.js 14 App Router 기반 웹앱
         type: 'highlight',
         content: '핵심: Claude는 "관련 없으면 무시해도 됨"이라는 시스템 지침을 받음. 모든 세션에 적용되는 보편적 규칙만 작성!',
         variant: 'warning',
+      },
+    ],
+  },
+
+  // Slide 4: oh-my-claudecode 소개
+  {
+    id: 4,
+    title: 'oh-my-claudecode (OMC)',
+    subtitle: '멀티 에이전트 오케스트레이션 플러그인',
+    content: [
+      {
+        type: 'bullets',
+        items: [
+          {
+            text: '32개 전문 에이전트',
+            sub: ['architect, executor, designer, researcher, qa-tester 등'],
+          },
+          {
+            text: '31+ 내장 스킬',
+            sub: ['autopilot, ralph, ultrawork, plan, analyze 등'],
+          },
+          {
+            text: 'Zero Learning Curve',
+            sub: ['"build me a REST API" → 자동으로 autopilot 활성화'],
+          },
+          {
+            text: '스마트 모델 라우팅',
+            sub: ['간단한 작업 → Haiku, 복잡한 추론 → Opus (30-50% 비용 절감)'],
+          },
+        ],
+      },
+    ],
+  },
+
+  // Slide 5: 설치 가이드
+  {
+    id: 5,
+    title: '설치 가이드',
+    subtitle: '3단계로 시작하기',
+    layout: 'code-focus',
+    content: [
+      { type: 'text', content: '1. Claude Code CLI 설치 & 로그인' },
+      {
+        type: 'code',
+        language: 'bash',
+        code: 'npm install -g @anthropic-ai/claude-code\nclaude   # 첫 실행 시 브라우저로 로그인 (Max/Pro 구독 필요)',
+        filename: 'Terminal',
+      },
+      { type: 'spacer', size: 'sm' },
+      { type: 'text', content: '2. (선택) API 키 사용 시' },
+      {
+        type: 'code',
+        language: 'bash',
+        code: 'export ANTHROPIC_API_KEY="sk-ant-..."',
+        filename: 'Terminal',
+      },
+      { type: 'spacer', size: 'sm' },
+      { type: 'text', content: '3. oh-my-claudecode 플러그인 설치' },
+      {
+        type: 'code',
+        language: 'bash',
+        code: '/plugin marketplace add https://github.com/Yeachan-Heo/oh-my-claudecode\n/plugin install oh-my-claudecode',
+        filename: 'Claude Code 내에서',
+      },
+    ],
+  },
+
+  // Slide 6: 초기 설정
+  {
+    id: 6,
+    title: '초기 설정',
+    subtitle: 'omc-setup으로 한 번에',
+    layout: 'code-focus',
+    content: [
+      {
+        type: 'code',
+        language: 'bash',
+        code: '/oh-my-claudecode:omc-setup',
+        filename: 'Claude Code',
+      },
+      { type: 'spacer', size: 'md' },
+      {
+        type: 'bullets',
+        items: [
+          'HUD 상태바 설치 (실시간 에이전트 상태, 비용 추적)',
+          'CLAUDE.md 자동 생성 (프로젝트별 지침)',
+          '기본 실행 모드 선택 (ultrawork / ecomode)',
+          '권장 MCP 서버 설정 안내',
+        ],
+      },
+      {
+        type: 'highlight',
+        content: '설정 후에는 자연어로 대화하듯이 사용하면 됩니다!',
+        variant: 'success',
       },
     ],
   },
