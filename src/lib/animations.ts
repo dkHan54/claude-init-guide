@@ -4,34 +4,32 @@ import { Variants, Transition } from 'framer-motion';
 const smoothEasing: [number, number, number, number] = [0.25, 0.1, 0.25, 1]; // cubic-bezier
 const gentleEasing: [number, number, number, number] = [0.4, 0, 0.2, 1]; // Material Design easing
 
-/** 슬라이드 전환 애니메이션 - 부드러운 페이드 + 스케일 + 슬라이드 */
+/** 슬라이드 전환 애니메이션 - 페이지 넘김 효과 */
 export const slideVariants: Variants = {
   enter: (direction: number) => ({
-    x: direction > 0 ? '30%' : '-30%',
-    opacity: 0,
-    scale: 0.95,
-    filter: 'blur(4px)',
+    x: direction > 0 ? '100%' : '-100%',
+    opacity: 0.5,
+    scale: 0.98,
+    zIndex: 2,
   }),
   center: {
-    zIndex: 1,
     x: 0,
     opacity: 1,
     scale: 1,
-    filter: 'blur(0px)',
+    zIndex: 1,
   },
   exit: (direction: number) => ({
-    zIndex: 0,
-    x: direction < 0 ? '30%' : '-30%',
+    x: direction < 0 ? '50%' : '-50%',
     opacity: 0,
     scale: 0.95,
-    filter: 'blur(4px)',
+    zIndex: 0,
   }),
 };
 
-/** 슬라이드 전환 트랜지션 - 더 부드럽게 */
+/** 슬라이드 전환 트랜지션 - 페이지 넘김용 */
 export const slideTransition: Transition = {
   type: 'tween',
-  duration: 0.5,
+  duration: 0.4,
   ease: gentleEasing,
 };
 

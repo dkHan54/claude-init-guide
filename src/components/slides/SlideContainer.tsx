@@ -14,7 +14,8 @@ interface SlideContainerProps {
 export function SlideContainer({ slides, currentIndex, direction }: SlideContainerProps) {
   return (
     <div className="relative w-full h-full overflow-hidden">
-      <AnimatePresence initial={false} custom={direction} mode="wait">
+      {/* 두 슬라이드가 동시에 보이면서 전환 (mode 제거) */}
+      <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={currentIndex}
           custom={direction}
