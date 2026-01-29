@@ -746,9 +746,70 @@ Next.js 14 App Router 기반 웹앱
     ],
   },
 
-  // Slide 19: 개인 경험담
+  // Slide 19: 보안 & 자동화
   {
     id: 19,
+    title: '보안 & 자동화',
+    subtitle: 'Hook과 GitHub Actions',
+    content: [
+      {
+        type: 'twoColumn',
+        left: [
+          {
+            type: 'text',
+            content: 'Hook 기반 보안',
+            className: 'font-semibold text-accent-purple',
+          },
+          {
+            type: 'bullets',
+            items: [
+              { text: '위험 명령어 차단', sub: ['rm -rf, sudo 등 사전 검증'] },
+              { text: '민감 파일 보호', sub: ['.env, .ssh, credentials 접근 방지'] },
+              { text: '디렉토리 탈출 방지', sub: ['프로젝트 외부 접근 제한'] },
+              { text: '감사 로깅', sub: ['모든 도구 사용 기록'] },
+            ],
+          },
+          {
+            type: 'code',
+            language: 'bash',
+            code: '# .claude/settings.json\n"hooks": {\n  "PreToolUse": [{\n    "matcher": "Bash",\n    "hooks": ["./security-check.sh"]\n  }]\n}',
+            filename: 'Hook 설정 예시',
+          },
+        ],
+        right: [
+          {
+            type: 'text',
+            content: 'GitHub Actions 통합',
+            className: 'font-semibold text-accent-blue',
+          },
+          {
+            type: 'bullets',
+            items: [
+              { text: '@claude 멘션', sub: ['PR/이슈에서 Claude 호출'] },
+              { text: '자동 코드 리뷰', sub: ['PR 생성 시 자동 분석'] },
+              { text: '버그 수정 PR 생성', sub: ['이슈 → 자동 PR'] },
+              { text: '문서 자동 업데이트', sub: ['코드 변경 시 docs 동기화'] },
+            ],
+          },
+          {
+            type: 'code',
+            language: 'bash',
+            code: '# PR 코멘트에서\n@claude 이 PR의 보안 취약점 분석해줘\n\n# 이슈에서\n@claude 이 버그 수정하는 PR 만들어줘',
+            filename: '사용 예시',
+          },
+        ],
+      },
+      {
+        type: 'highlight',
+        content: 'GitHub Actions는 anthropics/claude-code-action 사용. API 키 또는 OAuth 토큰 필요',
+        variant: 'info',
+      },
+    ],
+  },
+
+  // Slide 20: 개인 경험담
+  {
+    id: 20,
     title: 'Claude Code 사용 경험',
     subtitle: '실전에서 배운 것들',
     content: [
@@ -784,6 +845,10 @@ Next.js 14 App Router 기반 웹앱
         type: 'bullets',
         items: [
           {
+            text: 'Shift-Tab 모드 전환',
+            sub: ['계획 모드 ↔ 자동 수락 모드 ↔ 일반 모드. Plan 확정 후 자동 수락으로 전환하면 빠름'],
+          },
+          {
             text: '검증 피드백 루프 연결',
             sub: ['린터, 타입체커, 테스트를 Claude가 직접 실행하게 → 수동 검토 시간 절약'],
           },
@@ -800,6 +865,43 @@ Next.js 14 App Router 기반 웹앱
             sub: ['여러 Claude 세션 동시 실행. 각각 별도 checkout으로 충돌 방지'],
           },
         ],
+      },
+    ],
+  },
+
+  // Slide 21: 참조 문서
+  {
+    id: 21,
+    title: '참조 문서',
+    subtitle: '더 깊이 알아보기',
+    layout: 'center',
+    content: [
+      {
+        type: 'bullets',
+        items: [
+          {
+            text: 'Claude Code 공식 문서',
+            sub: ['https://docs.anthropic.com/en/docs/claude-code'],
+          },
+          {
+            text: 'oh-my-claudecode GitHub',
+            sub: ['https://github.com/Yeachan-Heo/oh-my-claudecode'],
+          },
+          {
+            text: 'Hyperithm Claude Code 가이드 (기초)',
+            sub: ['https://tech.hyperithm.com/claude_code_guides'],
+          },
+          {
+            text: 'Hyperithm Claude Code 가이드 (심화)',
+            sub: ['https://tech.hyperithm.com/claude_code_guides_2'],
+          },
+        ],
+      },
+      { type: 'spacer', size: 'lg' },
+      {
+        type: 'highlight',
+        content: 'Happy Coding with Claude! 🚀',
+        variant: 'success',
       },
     ],
   },

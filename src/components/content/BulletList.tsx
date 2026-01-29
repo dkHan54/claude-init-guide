@@ -13,6 +13,28 @@ interface BulletListProps {
   animated?: boolean;
 }
 
+function renderWithLinks(text: string) {
+  const urlPattern = /(https?:\/\/[^\s]+)/g;
+  const parts = text.split(urlPattern);
+
+  return parts.map((part, i) => {
+    if (urlPattern.test(part)) {
+      return (
+        <a
+          key={i}
+          href={part}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-accent-blue hover:text-accent-purple underline underline-offset-2 transition-colors"
+        >
+          {part}
+        </a>
+      );
+    }
+    return part;
+  });
+}
+
 export function BulletList({ items, animated = true }: BulletListProps) {
   const Container = animated ? motion.ul : 'ul';
   const Item = animated ? motion.li : 'li';
@@ -45,7 +67,7 @@ export function BulletList({ items, animated = true }: BulletListProps) {
                   {sub.map((subItem, subIndex) => (
                     <li key={subIndex} className="flex items-start gap-2 text-base text-text-secondary">
                       <span className="mt-2 w-1.5 h-1.5 rounded-full bg-text-secondary/50 flex-shrink-0" />
-                      {subItem}
+                      {renderWithLinks(subItem)}
                     </li>
                   ))}
                 </ul>
