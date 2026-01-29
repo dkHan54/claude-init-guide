@@ -295,29 +295,38 @@ Next.js 14 App Router 기반 웹앱
     layout: 'split',
     content: [
       {
+        type: 'code',
+        language: 'bash',
+        code: '[OMC] | 5h:45% wk:12% | ctx:[████░░]67% | agents:2 | todos:2/5',
+        filename: 'HUD 예시 (focused + useBars)',
+      },
+      { type: 'spacer', size: 'sm' },
+      {
         type: 'twoColumn',
         left: [
           {
             type: 'text',
-            content: '표시 요소',
+            content: '설정 옵션 (hud-config.json)',
             className: 'font-semibold text-accent-purple mb-2',
           },
           {
             type: 'bullets',
             items: [
-              { text: '[OMC]', sub: ['플러그인 활성화 표시'] },
-              { text: 'Rate Limits', sub: ['5시간/주간 사용량'] },
-              { text: 'Context', sub: ['컨텍스트 윈도우 사용률 (%)'] },
-              { text: 'Agents', sub: ['실행 중인 에이전트 목록'] },
-              { text: 'Todos', sub: ['TODO 진행 상황'] },
-              { text: 'Ralph/Autopilot', sub: ['활성 모드 상태'] },
+              { text: 'omcLabel', sub: ['[OMC] 라벨 표시'] },
+              { text: 'rateLimits', sub: ['5h:% wk:% 사용량'] },
+              { text: 'contextBar', sub: ['ctx:67% 컨텍스트 사용률'] },
+              { text: 'useBars', sub: ['[████░░] 프로그레스 바'] },
+              { text: 'agents / agentsFormat', sub: ['에이전트 수 또는 multiline 상세'] },
+              { text: 'todos', sub: ['todos:2/5 진행 상황'] },
+              { text: 'ralph / autopilot', sub: ['활성 모드 표시'] },
+              { text: 'sessionHealth', sub: ['세션 상태 표시'] },
             ],
           },
         ],
         right: [
           {
             type: 'text',
-            content: '프리셋',
+            content: '프리셋 & 명령어',
             className: 'font-semibold text-accent-blue mb-2',
           },
           {
@@ -325,23 +334,28 @@ Next.js 14 App Router 기반 웹앱
             items: [
               { text: 'minimal', sub: ['필수 정보만'] },
               { text: 'focused', sub: ['기본값, 권장'] },
-              { text: 'full', sub: ['모든 정보 + 분석'] },
-              { text: 'analytics', sub: ['비용/토큰 분석 전용'] },
+              { text: 'full', sub: ['모든 정보 + multiline 에이전트'] },
             ],
           },
           { type: 'spacer', size: 'sm' },
           {
             type: 'code',
             language: 'bash',
-            code: '/oh-my-claudecode:hud setup\n/oh-my-claudecode:hud  # 프리셋 변경',
-            filename: 'HUD 설정',
+            code: '/hud setup    # 설치/수리\n/hud focused  # 프리셋 변경',
+            filename: '명령어',
+          },
+          { type: 'spacer', size: 'sm' },
+          {
+            type: 'highlight',
+            content: '설정 파일: ~/.claude/.omc/hud-config.json',
+            variant: 'info',
           },
         ],
       },
       { type: 'spacer', size: 'sm' },
       {
         type: 'highlight',
-        content: 'Context 70% 이상이면 경고, 80% 이상이면 /compact 권장 표시',
+        content: '색상: 초록(정상) → 노랑(ctx 70%+, 경고) → 빨강(ctx 85%+, 위험)',
         variant: 'tip',
       },
     ],
